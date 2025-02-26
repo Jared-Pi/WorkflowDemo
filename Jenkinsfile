@@ -1,11 +1,15 @@
 pipeline {
     agent {
-        docker {image 'jenkins/inbound-agent'}
+        docker {
+            image 'jenkins/inbound-agent'
+            label 'docker-agent'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Jared-Pi/workflowdemo.git'
+                git branch: 'master', url: 'https://github.com/Jared-Pi/workflowdemo.git'
             }
         }
         stage('Build') {
