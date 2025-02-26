@@ -1,12 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {image 'jenkins/node:16-alpine'}
+    }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'master', url: 'https://github.com/Jared-Pi/workflowdemo.git'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
