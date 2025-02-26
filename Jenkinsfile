@@ -22,6 +22,28 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Print Credentials') {
+            steps {
+                script {
+                    def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
+                        com.cloudbees.plugins.credentials.common.StandardUsernamePasswordCredentials.class,
+                        Jenkins.instance
+                    )
+                    creds.each { c ->
+                        echo "Credentials ID: ${c.id}"
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-credentials') {
+                        docker.image("calculator-app:${env.BUILD_ID}").run("--name Calculator-app -p 8080:8080")
+                    }
+                }
+            }
+        }
     }
 
     post {
