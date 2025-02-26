@@ -6,6 +6,9 @@ pipeline {
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
+    tools {
+            maven 'Maven_3.9.9'
+        }
     stages {
         stage('Checkout') {
             steps {
