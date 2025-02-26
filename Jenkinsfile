@@ -6,11 +6,6 @@ pipeline {
         }
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'master', url: 'https://github.com/Jared-Pi/workflowdemo.git', credentialsId: 'Jpi_github'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'mvn clean install'
