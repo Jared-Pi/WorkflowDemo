@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'jenkins/inbound-agent'
-            label 'docker-agent'
+            image 'dockins-agent:latest'
+            label 'dockins-agent'
         }
     }
     stages {
