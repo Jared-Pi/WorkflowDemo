@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    docker.withRegistry('', 'docker-credentials') {
+                    docker.withRegistry('https://hub.docker.com/', 'docker-credentials') {
                         docker.image("calculator-app:${env.BUILD_ID}").run("--name Calculator-app -p 8080:8080")
                     }
                 }
