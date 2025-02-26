@@ -5,6 +5,9 @@ pipeline {
             label 'docker-agent'
         }
     }
+    tools {
+            git 'Default Git'
+        }
     stages {
         stage('Checkout') {
             steps {
