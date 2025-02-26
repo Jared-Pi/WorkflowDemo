@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'jaredpi/dockins-agent:latest'
             label 'dockins-agent'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
     stages {
