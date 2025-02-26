@@ -21,13 +21,6 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Docker Build') {
-            steps {
-                script {
-                    docker.build("calculator-app:${env.BUILD_ID}")
-                }
-            }
-        }
         stage('Deploy') {
             steps {
                 script {
