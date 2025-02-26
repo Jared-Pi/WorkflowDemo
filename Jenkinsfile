@@ -6,7 +6,7 @@ pipeline {
         }
     }
     tools {
-            git 'Default Git'
+            git 'git'
         }
     stages {
         stage('Checkout') {
