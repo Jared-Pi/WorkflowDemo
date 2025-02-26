@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'dockins-agent:latest'
+            image 'jaredpi/dockins-agent:latest'
             label 'dockins-agent'
         }
     }
@@ -20,19 +20,6 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
-            }
-        }
-        stage('Print Credentials') {
-            steps {
-                script {
-                    def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
-                        com.cloudbees.plugins.credentials.common.StandardUsernamePasswordCredentials.class,
-                        Jenkins.instance
-                    )
-                    creds.each { c ->
-                        echo "Credentials ID: ${c.id}"
-                    }
-                }
             }
         }
         stage('Deploy') {
