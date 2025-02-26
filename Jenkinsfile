@@ -1,4 +1,10 @@
 pipeline {
+    agent {
+        docker {
+            image 'jenkins/inbound-agent'
+            label 'docker-agent'
+        }
+    }
     stages {
         stage('Checkout') {
             steps {
