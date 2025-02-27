@@ -6,9 +6,9 @@ public class Main {
         int a = 5;
         int b = 2;
 
-        calculator.add(a,b);
-        calculator.subtract(a, b);
-        calculator.multiply(a, b);
-        calculator.subtract(a, b);
+        System.out.println("Addition: " + calculator.add(a, b));
+        System.out.println("Subtraction: " + calculator.subtract(a, b));
+        System.out.println("Multiplication: " + calculator.multiply(a, b));
+        System.out.println("Division: " + calculator.divide(a, b));
     }
 }
