@@ -27,10 +27,10 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref && \
 # Add Jenkins user to the Docker group (for Docker-in-Docker)
 RUN usermod -aG docker jenkins
 
-# Switch back to the Jenkins user
-USER jenkins
-
 # Verify installations
 RUN git --version && \
     mvn --version && \
     docker --version
+
+# Switch back to the Jenkins user
+USER jenkins
