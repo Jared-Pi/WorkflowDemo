@@ -47,7 +47,7 @@
           <archive>
             <manifest>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              <mainClass>org.example.Calculator</mainClass>
+              <mainClass>org.example.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
