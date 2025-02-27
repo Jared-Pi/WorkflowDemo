@@ -14,15 +14,6 @@ pipeline {
         }
     }
 
-    stage('Docker Build and Push') {
-                steps {
-                    script {
-                        docker.build('jaredpi/workflowdemo:latest').push()
-                    }
-                }
-            }
-        }
-
     post {
         success {
             echo 'Pipeline completed successfully!'
